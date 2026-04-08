@@ -11,9 +11,9 @@ class Category(models.Model):
         return self.name  
       
 STATUS_CHOICES = (
-    ('draft', 'Draft'),    
-    ('published', 'Published'),
-)   
+    (0, 'Draft'),
+    (1, 'Published'),
+)
 class Blog(models.Model):
     title = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(unique=True)
@@ -22,7 +22,7 @@ class Blog(models.Model):
     featured_image = models.ImageField(upload_to='blog_images/', null=True, blank=True)
     short_description = models.CharField(max_length=255)
     blog_body = models.TextField()
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default=0)
+    status = models.IntegerField(choices=STATUS_CHOICES, default=0)
     featured_post = models.BooleanField(default=False, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
