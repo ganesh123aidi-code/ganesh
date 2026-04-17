@@ -249,7 +249,7 @@
           <div class="col-4 text-center">
             <a
               class="blog-header-logo text-body-emphasis text-decoration-none"
-              href="#"
+              href="{% url 'home' %}"
               >NPC Blog Post</a
             >
           </div>
@@ -280,7 +280,7 @@
       <div class="nav-scroller py-1 mb-3 border-bottom">
         <nav class="nav nav-underline justify-content-between">
           {% for category in categories %}
-          <a class="nav-item nav-link link-body-emphasis" href="#"
+          <a class="nav-item nav-link link-body-emphasis" href="{% url 'post_by_category' category.id %}"
             >{{ category.name }}</a
           >
           {% endfor %}
