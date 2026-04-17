@@ -22,7 +22,7 @@
   {% endif %} {% endfor %}
   <!-- Featured posts section -->
   <h3 class="text-uppercase text-warning" style="letter-spacing: 2px">
-    Category: {{ category.category_name }}
+    Category: {{ category.name }}
   </h3>
   <div class="row mb-2">
     {% if posts %} {% for post in posts %}
@@ -37,6 +37,11 @@
             {{ post.short_description | truncatewords:10 }}
           </p>
         </div>
+        <img
+          src="{{ post.featured_image.url }}"
+          class="card-img-bottom"
+          alt="{{ post.title }}"
+          style="height: 200px; object-fit: cover;">
       </div>
     </div>
     {% endfor %} {% else %}

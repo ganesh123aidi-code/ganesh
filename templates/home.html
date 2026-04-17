@@ -37,7 +37,7 @@
           </a>
         </div>
         <div class="col-auto d-none d-lg-block">
-           
+           <img src="{{ news.featured_image.url }}" alt="Image" width="200" height="250" class="bd-placeholder-img">
         </div>
       </div>
     </div>
@@ -45,12 +45,17 @@
   </div>
 
   <div class="row g-5">
-    <h1><span style="color: red">Other </span> posts</h1>
+    <h1><span style="color: red">Other news</span> posts</h1>
     {% for post in posts %}
     <div class="col-md-4 mb-4">
-      <div class="card h-100 shadow-sm">
+
+        <div class="card h-100 shadow-sm">
+          {% if post.featured_image %}
+          <img src="{{ post.featured_image.url }}" class="card-img-top" alt="{{ post.title }}" style="height: 200px; object-fit: cover;">
+          {% endif %}
         
         <div class="card-body d-flex flex-column">
+
           <h5 class="card-title">{{ post.title }}</h5>
           <p class="card-text flex-grow-1">
             {{ post.short_description|truncatechars:150 }}
